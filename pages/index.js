@@ -1,8 +1,20 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
+import axios from "axios";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [users, setUsers] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get("/users");
+      setUsers(res);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>

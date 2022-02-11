@@ -1,6 +1,9 @@
 import Head from "next/head";
 import "../styles/globals.css";
 import Header from "../components/Header";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:5000";
 
 function MyApp({ Component, pageProps }) {
   return (
